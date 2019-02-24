@@ -4,13 +4,15 @@ class Review extends Component {
 
   render() {
     const { review } = this.props
-
     return (
-      <div>
+      <div key={review.id}>
         <li>
           {review.text}
         </li>
-        <button> X </button>
+        <button onClick={(event) => {
+          event.preventDefault()
+          this.props.delete(review.id)
+        }}> X </button>
       </div>
     );
   }
